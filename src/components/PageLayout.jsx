@@ -1,12 +1,11 @@
-import { Fragment } from 'react'
 import ProjectForm from './ProjectForm'
 
-export default function Example() {
-  return (
-    <>
-    <div className="min-h-screen flex items-center justify-center">
-        <ProjectForm />
-    </div>
-    </>
-  )
+export default function PageLayout() {
+    return (
+        <>
+            <div className="flex items-start justify-center mt-40">
+                <ProjectForm />
+            </div>
+        </>
+    )
 }

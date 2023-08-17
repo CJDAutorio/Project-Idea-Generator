@@ -71,8 +71,8 @@ export default function ProjectForm() {
                 body: {
                     userRole: userRoleValue,
                     userSkill: userSkillValue,
-                    industry: industryValue,
-                    scope: scopeValue,
+                    industryType: industryValue,
+                    projectScope: scopeValue,
                 },
             };
 

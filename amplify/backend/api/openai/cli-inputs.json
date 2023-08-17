@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/openai": {
+      "name": "/openai",
+      "lambdaFunction": "projectgenerator",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create"
+        ],
+        "guest": [
+          "create"
+        ]
+      }
+    }
+  }
+}

@@ -12,11 +12,18 @@ See the License for the specific language governing permissions and limitations 
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+const { Configuration, OpenAIApi } = require("openai")
 
 // declare a new express app
 const app = express()
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
+
+// configure openai api
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
 // Enable CORS for all methods
 app.use(function(req, res, next) {
@@ -25,8 +32,30 @@ app.use(function(req, res, next) {
   next()
 });
 
-app.post('/openai', function(req, res) {
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
+app.post('/openai', async function(req, res) {
+  const { userRole, userSkill, userFocus, industryType } = req.body;
+  let modifiedUserFocus = "with a focus on " + userFocus;
+  
+  // make openai request
+  const response = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        "role": "user",
+        "content": `I am a ${userSkill} ${userRole}. Generate a project for a hypothetical ${industryType} company that I can use to practice my skills ${modifiedUserFocus} in a simulated professional environment. Format the project in the following JSON:\n\nproj_name: The name of the project. This must be a string.\nproj_company: The name of the hypothetical company. This must be a string.\nproj_desc: A short description of the project. This must be a string.\nproj_features: If the project is an app or website, what pages/features should be included? This must be an array with a max length of 6.\nproj_platform: The platform(s) the project will be on. This must be an array with a max length of 3.\nproj_deliverables: The deliverables expected from me. This must be an array with a max length of 4.\nproj_theme: The design theme(s) for the project. This must be a string.\nproj_colors: The project or company's color scheme. This must be an array with a max length of 3.  Colors must be in hex color code format.\nproj_resources: The libraries, languages, and tools the project needs to be created on or with. This must be an array with a max length of 6.\nproj_add_info: Any additional information for the project. This must be a string.`
+      }
+    ],
+    temperature: 1,
+    max_tokens: 512,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  });
+
+  // parse message into appropriate JSON format
+  const jsonResponse = JSON.parse(response.data.choices[0].message.content);
+
+  res.json({body: jsonResponse});
 });
 
 app.post('/openai/*', function(req, res) {

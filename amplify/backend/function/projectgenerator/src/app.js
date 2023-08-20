@@ -20,10 +20,8 @@ app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
 // configure openai api
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+let apiKey = process.env.OPENAI_API_KEY;
+const openai = new OpenAI({ apiKey });
 
 // Enable CORS for all methods
 app.use(function(req, res, next) {
@@ -36,7 +34,7 @@ app.post('/openai', async function(req, res) {
   const { userRole, userSkill, industryType, projectScope } = req.body;
   
   // make openai request
-  const response = await openai.createChatCompletion({
+  const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
       {
@@ -51,8 +49,14 @@ app.post('/openai', async function(req, res) {
     presence_penalty: 0,
   });
 
+  console.log('response:', response);
+
+  console.log('response text:', response.choices[0].message.content);
+
   // parse message into appropriate JSON format
-  const jsonResponse = JSON.parse(response.data.choices[0].message.content);
+  const jsonResponse = JSON.parse(response.choices[0].message.content);
+
+  console.log('jsonResponse:', jsonResponse);
 
   res.json({body: jsonResponse});
 });

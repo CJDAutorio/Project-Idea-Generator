@@ -13,14 +13,14 @@
       "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-projectideagenerator-dev-190008-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
+      "auth": {
+        "projectideagenerator": {}
+      },
       "function": {
         "projectgenerator": {
           "deploymentBucketName": "amplify-projectideagenerator-dev-190008-deployment",
-          "s3Key": "amplify-builds/projectgenerator-7a685557384d5a4d4835-build.zip"
+          "s3Key": "amplify-builds/projectgenerator-41306664643451677739-build.zip"
         }
-      },
-      "auth": {
-        "projectideagenerator": {}
       },
       "api": {
         "openai": {}

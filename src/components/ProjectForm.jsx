@@ -36,6 +36,7 @@ export default function ProjectForm() {
         ],
         proj_add_info: 'Additional Information',
     });
+    const [loading, setLoading] = useState(false);
 
     const userRoleOptions = [
         { value: 'none', label: 'Select an option...' },

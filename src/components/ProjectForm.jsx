@@ -71,7 +71,8 @@ export default function ProjectForm() {
         { value: 'beauty', label: 'Beauty and Wellness' },
         { value: 'marketing', label: 'Marketing and Advertising' },
         { value: 'home', label: 'Home and Lifestyle' },
-        { value: 'gaming', label: 'Gaming and Esports' },
+        { value: 'esports', label: 'Esports' },
+        { value: 'videogame', label: 'Video Game' },
         { value: 'art', label: 'Art and Creative Industries' },
         { value: 'nopref', label: 'No Preference' },
     ];

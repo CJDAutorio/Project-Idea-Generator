@@ -19,7 +19,7 @@
       "function": {
         "projectgenerator": {
           "deploymentBucketName": "amplify-projectideagenerator-dev-190008-deployment",
-          "s3Key": "amplify-builds/projectgenerator-41306664643451677739-build.zip"
+          "s3Key": "amplify-builds/projectgenerator-4e3830734e6e76576750-build.zip"
         }
       },
       "api": {

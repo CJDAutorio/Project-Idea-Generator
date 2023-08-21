@@ -156,7 +156,7 @@ export default function ProjectForm() {
                 )}
             </div>
 
-            <form onSubmit={handleSubmit} className='container-sm md:container-xl flex flex-col gap-y-8 items-center' id='project-form'>
+            <form onSubmit={handleSubmit} className='container-sm md:container-xl flex flex-col gap-y-8 items-center mt-8' id='project-form'>
                 <div className='flex flex-col md:flex-row gap-x-8 gap-y-6 md:gap-y-0 items-end'>
                     <div className='w-56' id='role-select-container'>
                         <label htmlFor='role' className='block text-sm font-medium text-gray-700'>
@@ -227,7 +227,7 @@ export default function ProjectForm() {
                 </button>
             </form>
 
-            <div className='flex flex-col gap-y-8 items-center mt-8 w-10/12 h-96' id='project-container'>
+            <div className='flex flex-col gap-y-8 items-center mt-8 w-10/12 ' id='project-container'>
                 <div className='w-full bg-gray-100 rounded-md shadow-md' id='project-card'>
                     <div className='flex flex-col gap-y-4 p-4'>
                         {!loading ? (

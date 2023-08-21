@@ -293,7 +293,7 @@ export default function ProjectForm() {
                             </>
                         ) : (
                             <>
-                                <div className='flex flex-row justify-center' id='project-headers'>
+                                <div className='flex flex-row justify-center animate-pulse' id='project-headers'>
                                     <div className='flex flex-col gap-y-2'>
                                         <div className='rounded-full bg-gray-400 h-5 w-36 my-2'></div>
                                         <div className='rounded-full bg-gray-300 h-3 w-36 my-2'></div>

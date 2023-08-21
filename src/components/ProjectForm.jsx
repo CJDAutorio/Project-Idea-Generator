@@ -23,11 +23,6 @@ export default function ProjectForm() {
             '#BBD5ED',
             '#CCFFCB',
         ],
-        proj_resources: [
-            'Resource 1',
-            'Resource 2',
-            'Resource 3',
-        ],
         proj_add_info: 'Additional Information',
     });
     const [loading, setLoading] = useState(false);
@@ -269,19 +264,6 @@ export default function ProjectForm() {
                                     </div>
 
                                     <div className='flex flex-col items-start pb-4'>
-                                        <p className='text-base font-bold'>Resources</p>
-                                        <div>
-                                            <ul className='list-disc pl-12'>
-                                                {project.proj_resources.map(resource => (
-                                                    <li className='text-base text-left'>
-                                                        {resource}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Additional Information</p>
                                         <p className='text-base pl-6'>{project.proj_add_info}</p>
                                     </div>
@@ -323,21 +305,13 @@ export default function ProjectForm() {
                                         <p className='text-base font-bold'>Theme</p>
                                         <div className='rounded-full bg-gray-300 h-3 w-56 my-2'></div>
                                     </div>
+
                                     <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Colors</p>
                                         <div className='flex flex-row gap-x-4 pl-6'>
                                             {project.proj_colors.map(color => (
                                                 <div className='w-28 h-20 rounded flex items-center justify-center bg-gray-300 mt-2'>
                                                 </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div className='flex flex-col items-start pb-4'>
-                                        <p className='text-base font-bold'>Resources</p>
-                                        <div>
-                                            {project.proj_resources.map(resource => (
-                                                <div className='rounded-full bg-gray-300 h-3 w-36 my-2'></div>
                                             ))}
                                         </div>
                                     </div>

@@ -3,7 +3,7 @@ import ProjectForm from './ProjectForm'
 export default function PageLayout() {
     return (
         <>
-            <div className="flex flex-col items-center justify-center mt-14">
+            <div className="flex flex-col items-center justify-center mt-10">
                 <ProjectForm />
             </div>
         </>

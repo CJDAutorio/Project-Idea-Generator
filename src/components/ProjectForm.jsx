@@ -217,84 +217,145 @@ export default function ProjectForm() {
             <div className='flex flex-col gap-y-8 items-center mt-8 w-10/12 h-96' id='project-container'>
                 <div className='w-full bg-gray-100 rounded-md shadow-md' id='project-card'>
                     <div className='flex flex-col gap-y-4 p-4'>
-                        <div className='flex flex-row justify-center' id='project-headers'>
-                            <div className='flex flex-col gap-y-2'>
-                                <h1 className='text-2xl font-bold'>{project.proj_name}</h1>
-                                <h2 className='text-lg font-medium'>{project.proj_company}</h2>
-                            </div>
-                        </div>
-
-                        <hr className='h-px my-1 bg-gray-300 border-0'></hr>
-
-                        <div className='px-4 flex flex-col items-start' id='project-details'>
-                            <div className='flex flex-col items-start pb-4'>
-                                <p className='text-base font-bold'>Description</p>
-                                <p className='text-base pl-6'>{project.proj_desc}</p>
-                            </div>
-
-                            <div className='flex flex-col items-start pb-4'>
-                                <p className='text-base font-bold'>Features</p>
-                                <ul className='list-disc pl-12'>
-                                    <div>
-                                        {project.proj_features.map(feature => (
-                                            <li className='text-base text-left'>
-                                                {feature}
-                                            </li>
-                                        ))}
+                        {!loading ? (
+                            <>
+                                <div className='flex flex-row justify-center' id='project-headers'>
+                                    <div className='flex flex-col gap-y-2'>
+                                        <h1 className='text-2xl font-bold'>{project.proj_name}</h1>
+                                        <h2 className='text-lg font-medium'>{project.proj_company}</h2>
                                     </div>
-                                </ul>
-                            </div>
+                                </div><hr className='h-px my-1 bg-gray-300 border-0'></hr><div className='px-4 flex flex-col items-start' id='project-details'>
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Description</p>
+                                        <p className='text-base pl-6'>{project.proj_desc}</p>
+                                    </div>
 
-                            <div className='flex flex-col items-start pb-4'>
-                                <p className='text-base font-bold'>Platform(s)</p>
-                                <div>
-                                    <ul className='list-disc pl-12'>
-                                    {project.proj_platform.map(platform => (
-                                        <li className='text-base text-left'>
-                                            {platform}
-                                        </li>
-                                    ))}
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div className='flex flex-col items-start pb-4'>
-                                <p className='text-base font-bold'>Theme</p>
-                                <p className='text-base pl-6'>{project.proj_theme}</p>
-                            </div>
-
-                            <div className='flex flex-col items-start pb-4'>
-                                <p className='text-base font-bold'>Colors</p>
-                                <div className='flex flex-row gap-x-4 pl-6'>
-                                        {project.proj_colors.map(color => (
-                                            <div className='w-28 h-20 rounded flex items-center justify-center' style={{backgroundColor: color}}>
-                                                <p className='text-base'>{color}</p>
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Features</p>
+                                        <ul className='list-disc pl-12'>
+                                            <div>
+                                                {project.proj_features.map(feature => (
+                                                    <li className='text-base text-left'>
+                                                        {feature}
+                                                    </li>
+                                                ))}
                                             </div>
-                                        ))}
-                                </div>
-                            </div>
+                                        </ul>
+                                    </div>
 
-                            <div className='flex flex-col items-start pb-4'>
-                                <p className='text-base font-bold'>Resources</p>
-                                <div>
-                                    <ul className='list-disc pl-12'>
-                                    {project.proj_resources.map(resource => (
-                                        <li className='text-base text-left'>
-                                            {resource}
-                                        </li>
-                                    ))}
-                                    </ul>
-                                </div>
-                            </div>
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Platform(s)</p>
+                                        <div>
+                                            <ul className='list-disc pl-12'>
+                                                {project.proj_platform.map(platform => (
+                                                    <li className='text-base text-left'>
+                                                        {platform}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
 
-                            <div className='flex flex-col items-start pb-4'>
-                                <p className='text-base font-bold'>Additional Information</p>
-                                <p className='text-base pl-6'>{project.proj_add_info}</p>
-                            </div>
-                        </div>
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Theme</p>
+                                        <p className='text-base pl-6'>{project.proj_theme}</p>
+                                    </div>
+
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Colors</p>
+                                        <div className='flex flex-row gap-x-4 pl-6'>
+                                            {project.proj_colors.map(color => (
+                                                <div className='w-28 h-20 rounded flex items-center justify-center' style={{ backgroundColor: color }}>
+                                                    <p className='text-base'>{color}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Resources</p>
+                                        <div>
+                                            <ul className='list-disc pl-12'>
+                                                {project.proj_resources.map(resource => (
+                                                    <li className='text-base text-left'>
+                                                        {resource}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Additional Information</p>
+                                        <p className='text-base pl-6'>{project.proj_add_info}</p>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className='flex flex-row justify-center' id='project-headers'>
+                                    <div className='flex flex-col gap-y-2'>
+                                        <div className='rounded-full bg-gray-400 h-5 w-36 my-2'></div>
+                                        <div className='rounded-full bg-gray-300 h-3 w-36 my-2'></div>
+                                    </div>
+                                </div>
+                                <div className='px-4 flex flex-col items-start animate-pulse' id='project-details'>
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Description</p>
+                                        <div class='rounded-full bg-gray-300 h-3 w-96 mt-2'></div>
+                                    </div>
+
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Features</p>
+                                        <div>
+                                            {project.proj_features.map(feature => (
+                                                <div className='rounded-full bg-gray-300 h-3 w-60 my-2'></div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Platform(s)</p>
+                                        <div>
+                                            {project.proj_platform.map(platform => (
+                                                <div className='rounded-full bg-gray-300 h-3 w-48 my-2'></div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Theme</p>
+                                        <div className='rounded-full bg-gray-300 h-3 w-56 my-2'></div>
+                                    </div>
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Colors</p>
+                                        <div className='flex flex-row gap-x-4 pl-6'>
+                                            {project.proj_colors.map(color => (
+                                                <div className='w-28 h-20 rounded flex items-center justify-center bg-gray-300 mt-2'>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Resources</p>
+                                        <div>
+                                            {project.proj_resources.map(resource => (
+                                                <div className='rounded-full bg-gray-300 h-3 w-36 my-2'></div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className='flex flex-col items-start pb-4'>
+                                        <p className='text-base font-bold'>Additional Information</p>
+                                        <div className='rounded-full bg-gray-300 h-3 w-96 my-2'></div>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

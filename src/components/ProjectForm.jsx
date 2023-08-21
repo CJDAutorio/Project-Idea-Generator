@@ -11,9 +11,6 @@ export default function ProjectForm() {
             'Feature 1',
             'Feature 2',
             'Feature 3',
-            'Feature 4',
-            'Feature 5',
-            'Feature 6',
         ],
         proj_platform: [
             'Platform 1',
@@ -30,9 +27,6 @@ export default function ProjectForm() {
             'Resource 1',
             'Resource 2',
             'Resource 3',
-            'Resource 4',
-            'Resource 5',
-            'Resource 6',
         ],
         proj_add_info: 'Additional Information',
     });

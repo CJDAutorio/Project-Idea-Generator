@@ -237,7 +237,9 @@ export default function ProjectForm() {
                                         <h1 className='text-2xl font-bold'>{project.proj_name}</h1>
                                         <h2 className='text-lg font-medium'>{project.proj_company}</h2>
                                     </div>
-                                </div><hr className='h-px my-1 bg-gray-300 border-0'></hr><div className='px-4 flex flex-col items-start' id='project-details'>
+                                </div>
+                                <hr className='h-px my-1 bg-gray-300 border-0'></hr>
+                                <div className='px-4 flex flex-col items-start' id='project-details'>
                                     <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Description</p>
                                         <p className='text-base pl-6'>{project.proj_desc}</p>

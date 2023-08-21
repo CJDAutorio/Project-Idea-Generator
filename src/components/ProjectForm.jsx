@@ -147,18 +147,17 @@ export default function ProjectForm() {
         <>
             <div className='absolute top-8 flex flex-row gap-x-8' id='message-container'>
                 {alert && (
-                    <div className='bg-red-100 border border-red-400 text-red-700 px-40 py-2 rounded relative cursor-pointer' role='alert' onClick={() => setAlert(false)}>
-                        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-5 h-5 absolute top-1/4 left-4'>
-                            <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
-                        </svg>
-                        <strong className='font-bold'>Error!</strong>
-                        <span className='block sm:inline'> Please select an option for each field.</span>
+                    <div className='bg-red-100 border border-red-400 text-red-700 px-12 py-2 rounded relative cursor-pointer' role='alert' onClick={() => setAlert(false)}>
+                        <div className=''>
+                            <strong className='font-bold'>Error!</strong>
+                            <span className='block sm:inline'>Please select an option for each field.</span>
+                        </div>
                     </div>
                 )}
             </div>
 
-            <form onSubmit={handleSubmit} className='container-xl flex flex-col gap-y-8 items-center' id='project-form'>
-                <div className='flex flex-row gap-x-8 items-end'>
+            <form onSubmit={handleSubmit} className='container-sm md:container-xl flex flex-col gap-y-8 items-center' id='project-form'>
+                <div className='flex flex-col md:flex-row gap-x-8 gap-y-6 md:gap-y-0 items-end'>
                     <div className='w-56' id='role-select-container'>
                         <label htmlFor='role' className='block text-sm font-medium text-gray-700'>
                             What is your role?
@@ -279,9 +278,9 @@ export default function ProjectForm() {
 
                                     <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Colors</p>
-                                        <div className='flex flex-row gap-x-4 pl-6'>
+                                        <div className='flex flex-col md:flex-row gap-x-4 pl-6'>
                                             {project.proj_colors.map(color => (
-                                                <div className='w-28 h-20 rounded flex items-center justify-center mt-2' style={{ backgroundColor: color }}>
+                                                <div className='w-48 md:w-28 h-20 rounded flex items-center justify-center mt-2' style={{ backgroundColor: color }}>
                                                     <p className='text-base font-bold' style={{color: setTextColor(color)}}>{color}</p>
                                                 </div>
                                             ))}
@@ -305,7 +304,7 @@ export default function ProjectForm() {
                                 <div className='px-4 flex flex-col items-start animate-pulse' id='project-details'>
                                     <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Description</p>
-                                        <div class='rounded-full bg-gray-300 h-3 w-96 mt-2'></div>
+                                        <div class='rounded-full bg-gray-300 h-3 w-48 md:w-96 mt-2'></div>
                                     </div>
 
                                     <div className='flex flex-col items-start pb-4'>
@@ -333,9 +332,9 @@ export default function ProjectForm() {
 
                                     <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Colors</p>
-                                        <div className='flex flex-row gap-x-4 pl-6'>
+                                        <div className='flex flex-col md:flex-row gap-x-4 pl-6'>
                                             {project.proj_colors.map(color => (
-                                                <div className='w-28 h-20 rounded flex items-center justify-center bg-gray-300 mt-2'>
+                                                <div className='w-48 md:w-28 h-20 rounded flex items-center justify-center bg-gray-300 mt-2'>
                                                 </div>
                                             ))}
                                         </div>
@@ -343,7 +342,7 @@ export default function ProjectForm() {
 
                                     <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Additional Information</p>
-                                        <div className='rounded-full bg-gray-300 h-3 w-96 my-2'></div>
+                                        <div className='rounded-full bg-gray-300 h-3 w-48 md:w-96 my-2'></div>
                                     </div>
                                 </div>
                             </>

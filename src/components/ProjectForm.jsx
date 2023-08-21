@@ -116,7 +116,7 @@ export default function ProjectForm() {
     };
 
     function verifyInputs(role, skill, industry, scope) {
-        if (role === 'none' || skill === 'none' || industry === 'none' || scope === 'none') {
+        if (role === 'Select an option...' || skill === 'Select an option...' || industry === 'Select an option...' || scope === 'Select an option...') {
             return false;
         }
         return true;

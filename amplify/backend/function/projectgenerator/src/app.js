@@ -33,15 +33,15 @@ app.use(function(req, res, next) {
 app.post('/openai', async function(req, res) {
   let { userRole, userSkill, industryType, projectScope } = req.body;
 
-  if (userSkill === 'nopref') {
+  if (userSkill === 'No Preference') {
     userSkill = ''
   }
 
-  if (industryType === 'nopref') {
+  if (industryType === 'No Preference') {
     industryType = ''
   }
 
-  if (projectScope === 'nopref') {
+  if (projectScope === 'No Preference') {
     projectScope = ''
   } else {
     projectScope = projectScope + '-scope'

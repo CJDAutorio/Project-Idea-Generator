@@ -76,7 +76,7 @@ app.post('/openai', async function(req, res) {
 });
 
 app.post('/openai/*', function(req, res) {
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
+  res.status(400).json({error: 'invalid request', url: req.url, body: req.body})
 });
 
 app.listen(3000, function() {

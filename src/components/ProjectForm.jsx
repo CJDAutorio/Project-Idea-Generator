@@ -221,7 +221,7 @@ export default function ProjectForm() {
                 </div>
                 <button
                     type='submit'
-                    className='mt-3 bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75'
+                    className='bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75'
                 >
                     Generate
                 </button>

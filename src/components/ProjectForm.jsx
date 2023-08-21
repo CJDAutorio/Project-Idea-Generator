@@ -131,18 +131,19 @@ export default function ProjectForm() {
 
     return (
         <>
-            <div className='absolute top-8 flex flex-row gap-x-8'>
+            <div className='absolute top-8 flex flex-row gap-x-8' id='message-container'>
                 {alert && (
                     <div className='bg-red-100 border border-red-400 text-red-700 px-40 py-2 rounded relative cursor-pointer' role='alert' onClick={() => setAlert(false)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 absolute top-1/4 left-4">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-5 h-5 absolute top-1/4 left-4'>
+                            <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
                         </svg>
                         <strong className='font-bold'>Error!</strong>
                         <span className='block sm:inline'> Please select an option for each field.</span>
                     </div>
                 )}
             </div>
-            <form onSubmit={handleSubmit} className='container-xl flex flex-col gap-y-8 items-center'>
+
+            <form onSubmit={handleSubmit} className='container-xl flex flex-col gap-y-8 items-center' id='project-form'>
                 <div className='flex flex-row gap-x-8 items-end'>
                     <div className='w-56' id='role-select-container'>
                         <label htmlFor='role' className='block text-sm font-medium text-gray-700'>

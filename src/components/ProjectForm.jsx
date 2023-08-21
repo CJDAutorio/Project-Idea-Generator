@@ -280,8 +280,8 @@ export default function ProjectForm() {
                                         <p className='text-base font-bold'>Colors</p>
                                         <div className='flex flex-row gap-x-4 pl-6'>
                                             {project.proj_colors.map(color => (
-                                                <div className='w-28 h-20 rounded flex items-center justify-center' style={{ backgroundColor: color }}>
-                                                    <p className='text-base'>{color}</p>
+                                                <div className='w-28 h-20 rounded flex items-center justify-center mt-2' style={{ backgroundColor: color }}>
+                                                    <p className='text-base font-bold' style={{color: setTextColor(color)}}>{color}</p>
                                                 </div>
                                             ))}
                                         </div>

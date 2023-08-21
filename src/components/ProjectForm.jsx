@@ -34,6 +34,8 @@ export default function ProjectForm() {
         { value: 'backend', label: 'Back-End Developer' },
         { value: 'android', label: 'Android Developer' },
         { value: 'ios', label: 'iOS Developer' },
+        { value: '2dgamedev', label: '2D Game Developer' },
+        { value: '3dgamedev', label: '3D Game Developer' },
         { value: 'graphic', label: 'Graphic Designer' },
         { value: 'uiux', label: 'UI/UX Designer' },
         { value: '2danimator', label: '2D Animator' },

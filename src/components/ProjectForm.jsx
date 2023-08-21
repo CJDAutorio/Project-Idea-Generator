@@ -84,18 +84,18 @@ export default function ProjectForm() {
 
     const handleSubmit = event => {
         event.preventDefault();
-        const userRoleValue = event.target.role.value;
-        const userSkillValue = event.target.skill.value;
-        const industryValue = event.target.industry.value;
-        const scopeValue = event.target.scope.value;
+        const userRoleLabel = event.target.role.label;
+        const userSkillLabel = event.target.skill.label;
+        const industryLabel = event.target.industry.label;
+        const scopeLabel = event.target.scope.label;
 
-        if (verifyInputs(userRoleValue, userSkillValue, industryValue, scopeValue)) {
+        if (verifyInputs(userRoleLabel, userSkillLabel, industryLabel, scopeLabel)) {
             const apiInit = {
                 body: {
-                    userRole: userRoleValue,
-                    userSkill: userSkillValue,
-                    industryType: industryValue,
-                    projectScope: scopeValue,
+                    userRole: userRoleLabel,
+                    userSkill: userSkillLabel,
+                    industryType: industryLabel,
+                    projectScope: scopeLabel,
                 },
             };
             setLoading(true);

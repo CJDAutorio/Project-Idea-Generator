@@ -31,21 +31,11 @@ app.use(function(req, res, next) {
 });
 
 app.post('/openai', async function(req, res) {
-  let { userRole, userSkill, industryType, projectScope } = req.body;
+  const { userRole, userSkill, industryType, projectScope } = req.body;
 
-  if (userSkill === 'No Preference') {
-    userSkill = ''
-  }
-
-  if (industryType === 'No Preference') {
-    industryType = ''
-  }
-
-  if (projectScope === 'No Preference') {
-    projectScope = ''
-  } else {
-    projectScope = projectScope + '-scope'
-  }
+  const userSkillNormalized = userSkill === 'No Preference' ? '' : userSkill;
+  const industryTypeNormalized = industryType === 'No Preference' ? '' : industryType;
+  const projectScopeNormalized = projectScope === 'No Preference' ? '' : projectScope + '-scope';
   
   // make openai request
   const response = await openai.chat.completions.create({
@@ -53,7 +43,7 @@ app.post('/openai', async function(req, res) {
     messages: [
       {
         "role": "user",
-        "content": `I am a ${userSkill} ${userRole}. Generate a ${projectScope} project for a hypothetical ${industryType} company that I can use to practice my skills in a simulated professional environment. Format the project in the following JSON:\n\nproj_name: The name of the project. This must be a string.\nproj_company: The name of the hypothetical company. This must be a string.\nproj_desc: A short description of the project. This must be a string.\nproj_features: If the project is an app or website, what pages/features should be included? This must be an array with a max length of 6.\nproj_platform: The platform(s) the project will be on. This must be an array with a max length of 3.\nproj_deliverables: The deliverables expected from me. This must be an array with a max length of 4.\nproj_theme: The design theme(s) for the project. This must be a string.\nproj_colors: The project or company's color scheme. This must be an array with a max length of 3.  Colors must be in hex color code format.\nproj_add_info: Any additional information for the project. This must be a string.`
+        "content": `I am a ${userSkillNormalized} ${userRole}. Generate a ${projectScopeNormalized} project for a hypothetical ${industryTypeNormalized} company that I can use to practice my skills in a simulated professional environment. Format the project in the following JSON:\n\nproj_name: The name of the project. This must be a string.\nproj_company: The name of the hypothetical company. This must be a string.\nproj_desc: A short description of the project. This must be a string.\nproj_features: If the project is an app or website, what pages/features should be included? This must be an array with a max length of 6.\nproj_platform: The platform(s) the project will be on. This must be an array with a max length of 3.\nproj_deliverables: The deliverables expected from me. This must be an array with a max length of 4.\nproj_theme: The design theme(s) for the project. This must be a string.\nproj_colors: The project or company's color scheme. This must be an array with a max length of 3.  Colors must be in hex color code format.\nproj_add_info: Any additional information for the project. This must be a string.`
       }
     ],
     temperature: 1,

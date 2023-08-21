@@ -149,7 +149,7 @@ export default function ProjectForm() {
                 {alert && (
                     <div className='bg-red-100 border border-red-400 text-red-700 px-12 py-2 rounded relative cursor-pointer' role='alert' onClick={() => setAlert(false)}>
                         <div className=''>
-                            <strong className='font-bold'>Error!</strong>
+                            <strong className='font-bold'>Error!&nbsp;</strong>
                             <span className='block sm:inline'>Please select an option for each field.</span>
                         </div>
                     </div>

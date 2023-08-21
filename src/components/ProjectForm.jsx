@@ -3,6 +3,39 @@ import { API } from 'aws-amplify';
 
 export default function ProjectForm() {
     const [alert, setAlert] = useState(false);
+    const [project, setProject] = useState({
+        proj_name: 'Project Name',
+        proj_company: 'Company Name',
+        proj_desc: 'Project Description',
+        proj_features: [
+            'Feature 1',
+            'Feature 2',
+            'Feature 3',
+            'Feature 4',
+            'Feature 5',
+            'Feature 6',
+        ],
+        proj_platform: [
+            'Platform 1',
+            'Platform 2',
+            'Platform 3',
+        ],
+        proj_theme: 'Project Theme',
+        proj_colors: [
+            '#A288E3',
+            '#BBD5ED',
+            '#CCFFCB',
+        ],
+        proj_resources: [
+            'Resource 1',
+            'Resource 2',
+            'Resource 3',
+            'Resource 4',
+            'Resource 5',
+            'Resource 6',
+        ],
+        proj_add_info: 'Additional Information',
+    });
 
     const userRoleOptions = [
         { value: 'none', label: 'Select an option...' },

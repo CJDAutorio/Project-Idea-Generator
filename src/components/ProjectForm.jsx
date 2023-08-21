@@ -91,7 +91,6 @@ export default function ProjectForm() {
         const userSkillLabel = userSkillOptions.find(option => option.value === event.target.skill.value).label;
         const industryLabel = industryTypeOptions.find(option => option.value === event.target.industry.value).label;
         const scopeLabel = projectScopeOptions.find(option => option.value === event.target.scope.value).label;
-        console.log(userRoleLabel, userSkillLabel, industryLabel, scopeLabel);
 
         if (verifyInputs(userRoleLabel, userSkillLabel, industryLabel, scopeLabel)) {
             const apiInit = {
@@ -119,10 +118,8 @@ export default function ProjectForm() {
 
     function verifyInputs(role, skill, industry, scope) {
         if (role === 'Select an option...' || skill === 'Select an option...' || industry === 'Select an option...' || scope === 'Select an option...') {
-            console.log('verifyInputs: false');
             return false;
         }
-        console.log('verifyInputs: true');
         return true;
     }
 

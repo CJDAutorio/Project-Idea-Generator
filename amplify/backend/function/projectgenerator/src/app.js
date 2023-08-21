@@ -31,7 +31,21 @@ app.use(function(req, res, next) {
 });
 
 app.post('/openai', async function(req, res) {
-  const { userRole, userSkill, industryType, projectScope } = req.body;
+  let { userRole, userSkill, industryType, projectScope } = req.body;
+
+  if (userSkill === 'nopref') {
+    userSkill = ''
+  }
+
+  if (industryType === 'nopref') {
+    industryType = ''
+  }
+
+  if (projectScope === 'nopref') {
+    projectScope = ''
+  } else {
+    projectScope = projectScope + '-scope'
+  }
   
   // make openai request
   const response = await openai.chat.completions.create({

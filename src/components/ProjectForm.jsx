@@ -113,6 +113,7 @@ export default function ProjectForm() {
             API.post('openai', '/openai', apiInit)
                 .then(response => {
                     console.log(response);
+                    setProject(response.body);
                 }).catch(error => {
                     console.log(error);
                 });

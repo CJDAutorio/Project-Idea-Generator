@@ -254,7 +254,7 @@ export default function ProjectForm() {
                                 <div className='px-4 flex flex-col items-start' id='project-details'>
                                     <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Description</p>
-                                        <p className='text-base pl-6'>{project.proj_desc}</p>
+                                        <p className='text-base pl-6 text-left'>{project.proj_desc}</p>
                                     </div>
 
                                     <div className='flex flex-col items-start pb-4'>
@@ -293,7 +293,7 @@ export default function ProjectForm() {
                                         <div className='flex flex-col md:flex-row gap-x-4 pl-6'>
                                             {project.proj_colors.map(color => (
                                                 <div className='w-48 md:w-28 h-20 rounded flex items-center justify-center mt-2' style={{ backgroundColor: color }}>
-                                                    <p className='text-base font-bold' style={{color: setTextColor(color)}}>{color}</p>
+                                                    <p className='text-base font-bold' style={{ color: setTextColor(color) }}>{color}</p>
                                                 </div>
                                             ))}
                                         </div>
@@ -301,7 +301,7 @@ export default function ProjectForm() {
 
                                     <div className='flex flex-col items-start pb-4'>
                                         <p className='text-base font-bold'>Additional Information</p>
-                                        <p className='text-base pl-6'>{project.proj_add_info}</p>
+                                        <p className='text-base pl-6 text-left'>{project.proj_add_info}</p>
                                     </div>
                                 </div>
                             </>

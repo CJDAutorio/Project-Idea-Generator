@@ -9,7 +9,7 @@ export default function PageLayout() {
             <div className="flex flex-col items-center justify-center grow">
                 <ProjectForm />
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }
